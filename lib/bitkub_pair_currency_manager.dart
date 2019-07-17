@@ -1,4 +1,4 @@
-class BitkubPairCurrencyManager {
+class BitkubCurrencyManager {
   static const List<String> PAIR_CURRENCY_AVAILABLE = [
     "THB_ABT",
     "THB_ADA",
@@ -30,5 +30,36 @@ class BitkubPairCurrencyManager {
     "THB_XRP",
     "THB_ZIL",
     "THB_ZRX"
+  ];
+
+  static const List<String> WALLET_CURRENCY_AVAILABLE = [
+    "THB",
+    "BTC",
+    "ETH",
+    "WAN",
+    "ADA",
+    "OMG",
+    "BCH",
+    "LTC",
+    "USDT",
+    "XRP",
+    "BSV",
+    "ZIL",
+    "SNT",
+    "CVC",
+    "LINK",
+    "GNT",
+    "IOST",
+    "ZRX",
+    "KNC",
+    "ENG",
+    "RDN",
+    "ABT",
+    "MANA",
+    "INF",
+    "CTXC",
+    "XLM",
+    "SIX",
+    "JFIN"
   ];
 }

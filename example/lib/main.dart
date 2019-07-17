@@ -3,9 +3,11 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:flutter_bitkub_exchange/bitkub_exchange.dart';
 import 'package:flutter_bitkub_exchange/bitkub_open_order_type.dart';
+import 'package:flutter_bitkub_exchange/dao/api_key/bitkub_api_key.dart';
 
 Future main() async {
-  BitkubExchangeService bk = BitkubExchangeService();
+  BitkubExchangeService bk = BitkubExchangeService(
+      apiKeyGeneral: BitkubApiKey(apiKey: "e50f5241ab1412804f27cb194da11339",secret: "ecf9d5dd5dfa0cfc4957832aced5080d"));
 //  await bk.fetchServerTime(printJson: true);
 //  await bk.fetchMarketSymbols(printJson: true);
 //  await bk.fetchMarketTicker(printJson: true);
@@ -17,6 +19,7 @@ Future main() async {
 //  await bk.fetchOpenOrder(orderType: BitkubOpenOrderType.ASKS, symbol: "THB_BTC", limit: 10, printJson: true);
 //  await bk.fetchOpenOrderAll(symbol: "THB_BTC", limit: 10, printJson: true);
 //  await bk.fetchOpenOrderAll(symbol: "XXX", limit: 10, printJson: true);// Error case
+  await bk.fetchWalletBalance(printJson: true);// Error case
   runApp(MyApp());
 }
 

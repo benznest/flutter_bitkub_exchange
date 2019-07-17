@@ -1,34 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4befd1c9-ff70-4cd8-a98a-b8a5ad3e6e4d" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/bitkub_open_order_type.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/bitkub_pair_currency_manager.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/bitkub_trade_type.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/bitkub_utils.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/dao/api_key/bitkub_api_key.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/dao/bitkub_server_time_dao.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/dao/market_symbols/bitkub_market_symbol_dao.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/dao/market_symbols/bitkub_market_symbol_item_dao.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/dao/market_ticker/bitkub_market_ticker_dao.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/dao/market_ticker/bitkub_pair_currency_data_dao.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/dao/open_order/bitkub_open_order_all_dao.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/dao/open_order/bitkub_open_order_dao.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/dao/open_order/bitkub_open_order_item_dao.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/dao/recent_trades/bitkub_recent_trade_item_dao.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/dao/recent_trades/bitkub_recent_trades_dao.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_for_Android.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_for_Android.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/example_lib_main_dart.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/example_lib_main_dart.xml" afterDir="false" />
+    <list default="true" id="4befd1c9-ff70-4cd8-a98a-b8a5ad3e6e4d" name="Default" comment="public api.">
+      <change afterPath="$PROJECT_DIR$/lib/bitkub_auth_utils.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/bitkub_error_manager.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/dao/balance/bitkub_currency_balance_dao.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/dao/balance/bitkub_currency_balance_detail_dao.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/dao/balance/bitkub_wallet_balance_dao.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/test/widget_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/test/widget_test.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flutter_bitkub_exchange.iml" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_bitkub_exchange.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/flutter_bitkub_exchange.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/bitkub_exchange.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/bitkub_exchange.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/bitkub_exchange.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/bitkub_pair_currency_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/bitkub_pair_currency_manager.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/bitkub_utils.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/bitkub_utils.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dao/market_ticker/bitkub_market_ticker_dao.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dao/market_ticker/bitkub_market_ticker_dao.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/flutter_bitkub_exchange_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/test/flutter_bitkub_exchange_test.dart" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -44,11 +31,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/bitkub_exchange.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="160" column="43" selection-start-line="160" selection-start-column="43" selection-end-line="160" selection-end-column="43" />
+            <state relative-caret-position="216">
+              <caret line="202" lean-forward="true" selection-start-line="202" selection-end-line="202" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -57,67 +44,40 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/dao/open_order/bitkub_open_order_dao.dart">
+        <entry file="file://$PROJECT_DIR$/lib/dao/balance/bitkub_wallet_balance_dao.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="12" column="37" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/dao/open_order/bitkub_open_order_all_dao.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="6" column="27" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/dao/recent_trades/bitkub_recent_trade_item_dao.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="49" selection-start-line="13" selection-start-column="49" selection-end-line="13" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/example/lib/main.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+            <state relative-caret-position="544">
+              <caret line="32" column="34" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
               <folding>
-                <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#0#67#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/dao/open_order/bitkub_open_order_item_dao.dart">
+        <entry file="file://$PROJECT_DIR$/lib/bitkub_error_manager.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-280">
-              <caret line="2" column="28" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="28" />
+            <state>
+              <caret column="24" selection-start-column="6" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/bitkub_trade_type.dart">
+        <entry file="file://$PROJECT_DIR$/lib/dao/balance/bitkub_currency_balance_dao.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/dao/balance/bitkub_currency_balance_detail_dao.dart">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/bitkub_open_order_type.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+              <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -125,8 +85,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/bitkub_pair_currency_manager.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="34" selection-start-line="34" selection-end-line="34" />
+            <state relative-caret-position="136">
+              <caret line="34" column="28" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -154,14 +114,11 @@
         <option value="$PROJECT_DIR$/example/test/widget_test.dart" />
         <option value="$PROJECT_DIR$/test/flutter_bitkub_exchange_test.dart" />
         <option value="$PROJECT_DIR$/lib/dao/apiKey/bitkub_api_key.dart" />
-        <option value="$PROJECT_DIR$/pubspec.yaml" />
         <option value="$PROJECT_DIR$/lib/dao/server_time_dao.dart" />
         <option value="$PROJECT_DIR$/lib/dao/bitkub_server_time_dao.dart" />
-        <option value="$PROJECT_DIR$/lib/bitkub_utils.dart" />
         <option value="$PROJECT_DIR$/lib/dao/market_symbols/bitkub_market_symbol_item_dao.dart" />
         <option value="$PROJECT_DIR$/lib/dao/market_symbols/bitkub_market_symbol_dao.dart" />
         <option value="$PROJECT_DIR$/lib/dao/market_ticker/bitkub_ticker_dao.dart" />
-        <option value="$PROJECT_DIR$/lib/bitkub_pair_currency_manager.dart" />
         <option value="$PROJECT_DIR$/lib/dao/market_ticker/bitkub_pair_currency_data_dao.dart" />
         <option value="$PROJECT_DIR$/lib/dao/market_ticker/bitkub_market_ticker_dao.dart" />
         <option value="$PROJECT_DIR$/lib/bitkub_trade_type.dart" />
@@ -173,8 +130,16 @@
         <option value="$PROJECT_DIR$/lib/bitkub_open_order_type.dart" />
         <option value="$PROJECT_DIR$/lib/dao/open_order/bitkub_open_order_dao.dart" />
         <option value="$PROJECT_DIR$/lib/dao/open_order/bitkub_open_order_all_dao.dart" />
-        <option value="$PROJECT_DIR$/lib/bitkub_exchange.dart" />
+        <option value="$PROJECT_DIR$/pubspec.yaml" />
         <option value="$PROJECT_DIR$/example/lib/main.dart" />
+        <option value="$PROJECT_DIR$/lib/bitkub_utils.dart" />
+        <option value="$PROJECT_DIR$/lib/bitkub_auth_utils.dart" />
+        <option value="$PROJECT_DIR$/lib/bitkub_pair_currency_manager.dart" />
+        <option value="$PROJECT_DIR$/lib/bitkub_error_manager.dart" />
+        <option value="$PROJECT_DIR$/lib/dao/balance/bitkub_currency_balance_dao.dart" />
+        <option value="$PROJECT_DIR$/lib/dao/balance/bitkub_currency_balance_detail_dao.dart" />
+        <option value="$PROJECT_DIR$/lib/dao/balance/bitkub_wallet_balance_dao.dart" />
+        <option value="$PROJECT_DIR$/lib/bitkub_exchange.dart" />
       </list>
     </option>
   </component>
@@ -209,26 +174,7 @@
             <path>
               <item name="flutter_bitkub_exchange" type="b2602c69:ProjectViewProjectNode" />
               <item name="flutter_bitkub_exchange" type="462c0819:PsiDirectoryNode" />
-              <item name="example" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="flutter_bitkub_exchange" type="b2602c69:ProjectViewProjectNode" />
-              <item name="flutter_bitkub_exchange" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="flutter_bitkub_exchange" type="b2602c69:ProjectViewProjectNode" />
-              <item name="flutter_bitkub_exchange" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="flutter_bitkub_exchange" type="b2602c69:ProjectViewProjectNode" />
-              <item name="flutter_bitkub_exchange" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-              <item name="open_order" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="flutter_bitkub_exchange" type="b2602c69:ProjectViewProjectNode" />
@@ -258,14 +204,15 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Work\Flutter Project\flutter_bitkub_exchange\lib\dao\open_order" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Work\Flutter Project\flutter_bitkub_exchange\lib\dao\balance" />
       <recent name="C:\Work\Flutter Project\flutter_bitkub_exchange\lib\dao\open_order" />
       <recent name="C:\Work\Flutter Project\flutter_bitkub_exchange\lib" />
       <recent name="C:\Work\Flutter Project\flutter_bitkub_exchange\lib\dao\recent_trades" />
       <recent name="C:\Work\Flutter Project\flutter_bitkub_exchange\lib\dao\market_symbols" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Work\Flutter Project\flutter_bitkub_exchange\lib\dao\open_order" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -326,13 +273,20 @@
       <option name="presentableId" value="Default" />
       <updated>1562772538956</updated>
     </task>
+    <task id="LOCAL-00001" summary="public api.">
+      <created>1563294690956</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1563294690956</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1380" height="735" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24924242" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24924242" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Build Variants" order="3" side_tool="true" />
@@ -342,8 +296,8 @@
       <window_info id="Capture Tool" order="7" />
       <window_info id="Resources Explorer" order="8" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.40932643" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3298791" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.5647668" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -355,7 +309,7 @@
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="Terminal" order="12" weight="0.3298791" />
       <window_info anchor="bottom" id="Flutter Performance" order="13" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="14" visible="true" weight="0.3298791" />
+      <window_info anchor="bottom" id="Messages" order="14" weight="0.3298791" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -367,6 +321,10 @@
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Theme Preview" order="9" />
     </layout>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="public api." />
+    <option name="LAST_COMMIT_MESSAGE" value="public api." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/example/test/widget_test.dart">
@@ -403,13 +361,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../flutter/flutter/bin/cache/pkg/sky_engine/lib/convert/json.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -421,16 +372,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/bitkub_utils.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -468,20 +409,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/bitkub_pair_currency_manager.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/dao/recent_trades/bitkub_recent_trade_error_dao.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="31" selection-start-column="6" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/dao/recent_trades/bitkub_recent_trade_error_dao.dart" />
     <entry file="file://$PROJECT_DIR$/lib/dao/recent_trades/bitkub_recent_trades_dao.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="26">
@@ -489,34 +417,6 @@
           <folding>
             <element signature="e#0#22#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/dao/recent_trades/bitkub_recent_trade_item_dao.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="49" selection-start-line="13" selection-start-column="49" selection-end-line="13" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/dao/open_order/bitkub_open_order_item_dao.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-280">
-          <caret line="2" column="28" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/bitkub_open_order_type.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/bitkub_trade_type.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
@@ -534,22 +434,115 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/bitkub_exchange.dart">
+    <entry file="file://$PROJECT_DIR$/lib/dao/recent_trades/bitkub_recent_trade_item_dao.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="160" column="43" selection-start-line="160" selection-start-column="43" selection-end-line="160" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="221">
+          <caret line="13" column="49" selection-start-line="13" selection-start-column="49" selection-end-line="13" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/dao/open_order/bitkub_open_order_item_dao.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="28" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/bitkub_trade_type.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/bitkub_open_order_type.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="14" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/example/lib/main.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+        <state relative-caret-position="153">
+          <caret line="9" column="37" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/bitkub_utils.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/bitkub_auth_utils.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/bitkub_error_manager.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="24" selection-start-column="6" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/dao/balance/bitkub_currency_balance_dao.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/bitkub_pair_currency_manager.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="34" column="28" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/dao/balance/bitkub_currency_balance_detail_dao.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/dao/balance/bitkub_wallet_balance_dao.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" column="34" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#67#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/bitkub_exchange.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="202" lean-forward="true" selection-start-line="202" selection-end-line="202" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
           </folding>
         </state>
       </provider>
