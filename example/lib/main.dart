@@ -9,22 +9,15 @@ Future main() async {
       apiKeyCreateOrder: BitkubApiKey(apiKey: "-", secret: "-"),
       apiKeyCancelOrder: BitkubApiKey(apiKey: "-", secret: "-"));
 
-//  await bk.fetchServerTime(printJson: true);
-//  await bk.fetchMarketSymbols(printJson: true);
 //  await bk.fetchMarketTicker(printJson: true);
+//  var server = await bk.fetchServerTime(printJson: true);
 
-  var ticker = await bk.fetchMarketTicker(currency: "THB_BTC");
-  for(var cuurency in ticker.list){
-    // cuurency.id;
-    // cuurency.pairName;
-    // cuurency.last;
-    // cuurency.lowestAsk;
-    // cuurency.highestBid;
-    // cuurency.percentChange;
-    // cuurency.baseVolume;
-    // cuurency.quoteVolume;
-    // cuurency.high24hr;
-    // cuurency.lowestAsk;
+
+  var data = await bk.fetchMarketSymbols();
+  for(var currency in data.items){
+    // currency.id;
+    // currency.symbol;
+    // currency.info
   }
 
 //  await bk.fetchRecentTrades(currency: "THB_BTC", limit: 10, printJson: true);

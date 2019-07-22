@@ -28,7 +28,7 @@ var bk = BitkubExchangeService();
 
 ### Market Data (Ticker)
 
-Get ticker information.
+Get ticker information such as last price, high in 24Hr , volume. 
 
 ```dart
   var ticker = await bk.fetchMarketTicker(currency: "THB_BTC");
@@ -45,3 +45,30 @@ Get ticker information.
     // currency.lowestAsk;
   }
 ```
+
+### Get Server Timestamp
+
+Get server timestamp in seconds (Epoch Unix).
+
+```dart
+  var server = await bk.fetchServerTime();
+  // server.serverTime;
+  }
+```
+
+
+### Get Available Pair-Currency 
+
+Get List all available symbols.
+
+```dart
+  var data = await bk.fetchMarketSymbols();
+  for(var currency in data.items){
+    // currency.id;
+    // currency.symbol;
+    // currency.info
+  }
+```
+
+
+
