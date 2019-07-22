@@ -1,14 +1,47 @@
-# flutter_bitkub_exchange
+# Flutter Bitkub Exchange 
 
-A new Flutter plugin.
+Flutter Bitkub Exchange is a Flutter's library for calling API of the [https://www.bitkub.com/](https://www.bitkub.com/)
 
-## Getting Started
+## Installation
+Add dependencies in pubspec.yaml
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+```bash
+flutter_bitkub_exchange: 1.0.0
+```
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+## Usage
+
+Import the package to your project.
+
+```dart
+import 'package:flutter_bitkub_exchange/bitkub_exchange.dart';
+```
+
+## Using Public API
+
+Create instance without API Key. 
+
+```dart
+var bk = BitkubExchangeService();
+```
+
+
+### Market Data (Ticker)
+
+Get ticker information.
+
+```dart
+  var ticker = await bk.fetchMarketTicker(currency: "THB_BTC");
+  for(var currency in ticker.list){
+    // currency.id;
+    // currency.pairName;
+    // currency.last;
+    // currency.lowestAsk;
+    // currency.highestBid;
+    // currency.percentChange;
+    // currency.baseVolume;
+    // currency.quoteVolume;
+    // currency.high24hr;
+    // currency.lowestAsk;
+  }
+```

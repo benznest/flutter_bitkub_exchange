@@ -1,8 +1,8 @@
 name: flutter_bitkub_exchange
-description: A new Flutter plugin.
-version: 0.0.1
-author:
-homepage:
+description: The library for calling API of the [https://www.bitkub.com/
+version: 1.0.0
+author: benznest <benz7net@gmail.com>
+homepage: https://github.com/benznest/flutter_bitkub_exchange
 
 environment:
   sdk: ">=2.1.0 <3.0.0"

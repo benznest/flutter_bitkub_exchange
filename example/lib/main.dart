@@ -1,20 +1,31 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:flutter_bitkub_exchange/bitkub_exchange.dart';
-import 'package:flutter_bitkub_exchange/bitkub_open_order_side.dart';
 import 'package:flutter_bitkub_exchange/dao/api_key/bitkub_api_key.dart';
 
 Future main() async {
   BitkubExchangeService bk = BitkubExchangeService(
-      apiKeyGeneral: BitkubApiKey(apiKey: "e50f5241ab1412804f27cb194da11339", secret: "ecf9d5dd5dfa0cfc4957832aced5080d"),
-      apiKeyCreateOrder: BitkubApiKey(apiKey: "e50f5241ab1412804f27cb194da11339", secret: "ecf9d5dd5dfa0cfc4957832aced5080d"),
-      apiKeyCancelOrder: BitkubApiKey(apiKey: "e50f5241ab1412804f27cb194da11339", secret: "ecf9d5dd5dfa0cfc4957832aced5080d"));
+      apiKeyGeneral: BitkubApiKey(apiKey: "-", secret: "-"),
+      apiKeyCreateOrder: BitkubApiKey(apiKey: "-", secret: "-"),
+      apiKeyCancelOrder: BitkubApiKey(apiKey: "-", secret: "-"));
 
 //  await bk.fetchServerTime(printJson: true);
 //  await bk.fetchMarketSymbols(printJson: true);
 //  await bk.fetchMarketTicker(printJson: true);
 
-//  await bk.fetchMarketTicker(currency: "THB_BTC", printJson: true);
+  var ticker = await bk.fetchMarketTicker(currency: "THB_BTC");
+  for(var cuurency in ticker.list){
+    // cuurency.id;
+    // cuurency.pairName;
+    // cuurency.last;
+    // cuurency.lowestAsk;
+    // cuurency.highestBid;
+    // cuurency.percentChange;
+    // cuurency.baseVolume;
+    // cuurency.quoteVolume;
+    // cuurency.high24hr;
+    // cuurency.lowestAsk;
+  }
 
 //  await bk.fetchRecentTrades(currency: "THB_BTC", limit: 10, printJson: true);
 //  await bk.fetchRecentTrades(currency: "xx", limit: 10, printJson: true); // Error case
@@ -31,7 +42,9 @@ Future main() async {
 //  await bk.fetchOrderHistory(currency: "THB_ETH",printJson: true);
 //  await bk.createOrder(currency: "THB_ETH",side: BitkubOpenOrderSide.BUY,amount: 30,rate: 100,printJson: true);
 
-  await bk.cancelOrder(currency: "THB_ETH",side: BitkubOpenOrderSide.BUY,orderId: 3132207,printJson: true);
+//  await bk.cancelOrder(currency: "THB_ETH",side: BitkubOpenOrderSide.BUY,orderId: 3132207,printJson: true);
+
+
 
 
 
