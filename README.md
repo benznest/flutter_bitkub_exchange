@@ -222,6 +222,92 @@ List all open orders of the given symbol.
 ```
 
 
+### Get Transaction History
+
+List all open orders of the given symbol.
+
+```dart
+  var data = await bk.fetchUserOrderHistory(currency: "THB_ETH");
+  if(data.isError()){
+    // data.errorMessage;
+  }else{
+    for(var tx in data.history){
+      // tx.txnId;
+      // tx.orderId;
+      // tx.side;
+      // tx.rate;
+      // tx.amount;
+      // tx.fee;
+      // tx.credit;
+      // tx.takenByMe;
+      // row.balance;
+    }
+  }
+```
+
+
+### Create Order
+
+Create a buy/sell order.
+Example : BUY ETH with 30 THB in rate 100 THB/ETH so you will receive 0.3 ETH.
+```dart
+  var response =await bk.createOrder(currency: "THB_ETH",side: BitkubOpenOrderSide.BUY,amount: 30,rate: 100);
+  if(response.isError()){
+    // response.errorMessage;
+  } else{
+    // response.detail.id;
+    // response.detail.amount;
+    // response.detail.credit;
+    // response.detail.rate;
+    // response.detail.amount;
+    // response.detail.fee;
+    // response.detail.type;
+    // response.detail.receive;
+  }
+```
+
+Trading type
+
+```dart
+BitkubOpenOrderSide.BUY
+BitkubOpenOrderSide.SELL
+```
+
+### Cancel Order
+
+Cancel order with OrderId.
+```dart
+
+  var response = await bk.cancelOrder(currency: "THB_ETH",side: BitkubOpenOrderSide.BUY,orderId: 3132207,printJson: true);
+  if(response.isError()){
+    // response.errorMessage;
+  }
+```
+
+
+## Other uses
+
+Suggestions for other uses
+
+### Pairing Currency ID
+
+You can use BitkubCurrency class instead Currency String.
+
+Example
+
+```dart
+var recent = await bk.fetchRecentTrades(currency: BitkubCurrency.THB_BTC, limit: 100);
+```
+
+### Print JSON
+
+display JSON response on console or logcat.
+
+```dart
+var recent = await bk.fetchRecentTrades(currency: BitkubCurrency.THB_BTC, limit: 100,printJson: true);
+```
+
+
 
 
 

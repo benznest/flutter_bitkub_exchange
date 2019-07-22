@@ -1,3 +1,17 @@
-## 0.0.1
-
-* TODO: Describe initial release.
+## 1.0.0
+GET /api/servertime
+GET /api/market/symbols
+GET /api/market/ticker
+GET /api/market/trades
+GET /api/market/bids
+GET /api/market/asks
+GET /api/market/books
+GET /api/market/trading-view
+POST /api/market/wallet
+POST /api/market/balances
+POST /api/market/place-bid
+POST /api/market/place-ask
+POST /api/market/cancel-order
+POST /api/market/my-open-orders
+POST /api/market/my-order-history
+POST /api/market/order-info
