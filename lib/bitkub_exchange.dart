@@ -143,7 +143,7 @@ class BitkubExchangeService {
 
   /// This is a [public] api.
   /// Get list open buy orders.
-  Future<BitkubMarketOpenOrderDao> fetchOpenOrder({@required BitkubOpenOrderType orderType,@required String currency, int limit = 100, bool printJson = false}) async {
+  Future<BitkubMarketOpenOrderDao> fetchMarketOpenOrders({@required BitkubOpenOrderType orderType,@required String currency, int limit = 100, bool printJson = false}) async {
     assert(limit != null && limit > 0, "Please provide limit of data.");
     assert(currency != null && currency.isNotEmpty, "Please provide pair symbol of data.");
 
@@ -169,8 +169,8 @@ class BitkubExchangeService {
   }
 
   /// This is a [public] api.
-  /// Get all open buy orders.
-  Future<BitkubMarketOpenOrderAllDao> fetchOpenOrderAll({String currency = "THB_BTC", int limit = 100, bool printJson = false}) async {
+  /// Get all open orders.
+  Future<BitkubMarketOpenOrderAllDao> fetchMarketOpenOrdersAll({String currency = "THB_BTC", int limit = 100, bool printJson = false}) async {
     assert(limit != null && limit > 0, "Please provide limit of data.");
     assert(currency != null && currency.isNotEmpty, "Please provide pair symbol of data.");
 
@@ -215,7 +215,7 @@ class BitkubExchangeService {
   /// This is a [private] api.
   /// List all open orders of the given symbol.
   /// Example parameter : currency = "THB_ETH"
-  Future<BitkubUserOpenOrderDao> fetchOpenOrders({@required String currency, bool printJson = false}) async {
+  Future<BitkubUserOpenOrderDao> fetchUserOpenOrders({@required String currency, bool printJson = false}) async {
     String url = Uri.https(BASE_URL, POINT_API + END_POINT_OPEN_ORDER).toString();
 
     Map payload = {"sym": currency};
@@ -240,7 +240,7 @@ class BitkubExchangeService {
   /// This is a [private] api.
   /// List all orders that have already matched.
   /// Example parameter : currency = "THB_ETH"
-  Future<BitkubUserOrderHistoryDao> fetchOrderHistory({@required String currency, int page = 1, int limit = 100, bool printJson = false}) async {
+  Future<BitkubUserOrderHistoryDao> fetchUserOrderHistory({@required String currency, int page = 1, int limit = 100, bool printJson = false}) async {
     String url = Uri.https(BASE_URL, POINT_API + END_POINT_ORDER_HISTORY).toString();
 
     Map payload = {"sym": currency, "p": page, "limit": limit};

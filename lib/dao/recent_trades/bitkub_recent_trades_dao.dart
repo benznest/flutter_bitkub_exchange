@@ -4,10 +4,10 @@ import 'package:flutter_bitkub_exchange/dao/recent_trades/bitkub_recent_trade_it
 
 class BitkubRecentTradesDao {
   int errorCode;
-  List<BitkubRecentTradeItemDao> result;
+  List<BitkubRecentTradeItemDao> items;
   List<String> errorMessage;
 
-  BitkubRecentTradesDao({this.errorCode, this.result, this.errorMessage});
+  BitkubRecentTradesDao({this.errorCode, this.items, this.errorMessage});
 
   bool isError() {
     return errorCode != 0;
@@ -18,7 +18,7 @@ class BitkubRecentTradesDao {
       return BitkubRecentTradesDao(
         errorCode: json["error"],
         errorMessage: List(),
-        result: List.of(json["result"]).map((json) => BitkubRecentTradeItemDao.fromJson(json)).toList(),
+        items: List.of(json["result"]).map((json) => BitkubRecentTradeItemDao.fromJson(json)).toList(),
       );
     } else {
       var jsonResult = json["result"];
@@ -29,12 +29,12 @@ class BitkubRecentTradesDao {
       }else{
         listError.add("There are no symbol trade.");
       }
-      return BitkubRecentTradesDao(errorCode: json["error"], errorMessage: listError, result: List());
+      return BitkubRecentTradesDao(errorCode: json["error"], errorMessage: listError, items: List());
     }
   }
 
   Map<String, dynamic> toJson() {
-    return {"error": this.errorCode, "result": this.result.map((item) => item.toJson()).toList(),
+    return {"error": this.errorCode, "result": this.items.map((item) => item.toJson()).toList(),
       "errorMessage": this.errorMessage.map((item)=>item).toList()};
   }
 }
