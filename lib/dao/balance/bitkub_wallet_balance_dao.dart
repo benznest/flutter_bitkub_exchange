@@ -16,12 +16,12 @@ class BitkubWalletBalanceDao {
     List<BitkubCurrencyBalanceDao> listCurrencyBalance = List();
     var result = json["result"];
     if (result != null) {
-      for (String symbol in BitkubCurrencyManager.WALLET_CURRENCY_AVAILABLE) {
+      for (String symbol in BitkubCurrency.WALLET_CURRENCY_AVAILABLE) {
         if (result[symbol] != null) {
           BitkubCurrencyBalanceDetailDao detail = BitkubCurrencyBalanceDetailDao.fromJson(result[symbol]);
 
           double balance = detail.balance;
-          BitkubCurrencyBalanceDao currencyBalance = BitkubCurrencyBalanceDao(symbol: symbol, balance: balance, detail: detail);
+          BitkubCurrencyBalanceDao currencyBalance = BitkubCurrencyBalanceDao(currency: symbol, balance: balance, detail: detail);
           listCurrencyBalance.add(currencyBalance);
         }
       }

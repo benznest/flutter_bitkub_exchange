@@ -1,17 +1,24 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:flutter_bitkub_exchange/bitkub_auth_utils.dart';
+import 'package:flutter_bitkub_exchange/bitkub_open_order_side.dart';
 import 'package:flutter_bitkub_exchange/bitkub_open_order_type.dart';
 import 'package:flutter_bitkub_exchange/bitkub_utils.dart';
 import 'package:flutter_bitkub_exchange/dao/api_key/bitkub_api_key.dart';
 import 'package:flutter_bitkub_exchange/dao/balance/bitkub_wallet_balance_dao.dart';
 import 'package:flutter_bitkub_exchange/dao/bitkub_server_time_dao.dart';
+import 'package:flutter_bitkub_exchange/dao/cancel_order/bitkub_cancel_order_result_dao.dart';
+import 'package:flutter_bitkub_exchange/dao/create_order/bitkub_create_order_result_dao.dart';
 import 'package:flutter_bitkub_exchange/dao/market_symbols/bitkub_market_symbol_dao.dart';
 import 'package:flutter_bitkub_exchange/dao/market_ticker/bitkub_market_ticker_dao.dart';
-import 'package:flutter_bitkub_exchange/dao/open_order/bitkub_open_order_all_dao.dart';
-import 'package:flutter_bitkub_exchange/dao/open_order/bitkub_open_order_dao.dart';
+import 'package:flutter_bitkub_exchange/dao/market_open_order/bitkub_market_open_order_all_dao.dart';
+import 'package:flutter_bitkub_exchange/dao/market_open_order/bitkub_market_open_order_dao.dart';
+import 'package:flutter_bitkub_exchange/dao/order_detail/bitkub_order_information_dao.dart';
 import 'package:flutter_bitkub_exchange/dao/recent_trades/bitkub_recent_trades_dao.dart';
+import 'package:flutter_bitkub_exchange/dao/user_open_order/bitkub_user_open_order_dao.dart';
+import 'package:flutter_bitkub_exchange/dao/user_order_history/bitkub_user_order_history_dao.dart';
 import 'package:http/http.dart' as http;
 
 class BitkubExchangeService {
@@ -32,6 +39,12 @@ class BitkubExchangeService {
 
   /// Private API
   static const String END_POINT_WALLET_BALANCE = "market/balances/";
+  static const String END_POINT_OPEN_ORDER = "market/my-open-orders/";
+  static const String END_POINT_ORDER_HISTORY = "market/my-order-history/";
+  static const String END_POINT_ORDER_INFORMATION = "market/order-info/";
+  static const String END_POINT_CREATE_BUY_ORDER = "market/place-bid/";
+  static const String END_POINT_CREATE_SELL_ORDER = "market/place-ask/";
+  static const String END_POINT_CANCEL_ORDER = "market/cancel-order/";
 
   ///
   /// Api key for get general data.
@@ -93,8 +106,8 @@ class BitkubExchangeService {
 
   /// This is a [public] api.
   /// Get ticker information.
-  Future<BitkubMarketTickerDao> fetchMarketTicker({String symbol = "", bool printJson = false}) async {
-    String url = Uri.https(BASE_URL, POINT_API + END_POINT_MARKET_TICKER, {"sym": "$symbol"}).toString();
+  Future<BitkubMarketTickerDao> fetchMarketTicker({String currency = "", bool printJson = false}) async {
+    String url = Uri.https(BASE_URL, POINT_API + END_POINT_MARKET_TICKER, {"sym": "$currency"}).toString();
     var response = await http.get(url);
     var responseJson = decodeJsonUtf8(response);
 
@@ -110,11 +123,11 @@ class BitkubExchangeService {
 
   /// This is a [public] api.
   /// Get list recent trades.
-  Future<BitkubRecentTradesDao> fetchRecentTrades({String symbol = "THB_BTC", int limit = 100, bool printJson = false}) async {
+  Future<BitkubRecentTradesDao> fetchRecentTrades({String currency = "THB_BTC", int limit = 100, bool printJson = false}) async {
     assert(limit != null && limit > 0, "Please provide limit of data.");
-    assert(symbol != null && symbol.isNotEmpty, "Please provide pair symbol of data.");
+    assert(currency != null && currency.isNotEmpty, "Please provide pair symbol of data.");
 
-    String url = Uri.https(BASE_URL, POINT_API + END_POINT_MARKET_RECENT_TRADE, {"sym": "$symbol", "lmt": "$limit"}).toString();
+    String url = Uri.https(BASE_URL, POINT_API + END_POINT_MARKET_RECENT_TRADE, {"sym": "$currency", "lmt": "$limit"}).toString();
     var response = await http.get(url);
     var responseJson = decodeJsonUtf8(response);
 
@@ -130,10 +143,9 @@ class BitkubExchangeService {
 
   /// This is a [public] api.
   /// Get list open buy orders.
-  Future<BitkubOpenOrderDao> fetchOpenOrder(
-      {BitkubOpenOrderType orderType = BitkubOpenOrderType.BIDS, String symbol = "THB_BTC", int limit = 100, bool printJson = false}) async {
+  Future<BitkubMarketOpenOrderDao> fetchOpenOrder({@required BitkubOpenOrderType orderType,@required String currency, int limit = 100, bool printJson = false}) async {
     assert(limit != null && limit > 0, "Please provide limit of data.");
-    assert(symbol != null && symbol.isNotEmpty, "Please provide pair symbol of data.");
+    assert(currency != null && currency.isNotEmpty, "Please provide pair symbol of data.");
 
     String endpoint = "";
     if (orderType == BitkubOpenOrderType.BIDS) {
@@ -142,11 +154,11 @@ class BitkubExchangeService {
       endpoint = END_POINT_OPEN_ORDER_ASKS;
     }
 
-    String url = Uri.https(BASE_URL, POINT_API + endpoint, {"sym": "$symbol", "lmt": "$limit"}).toString();
+    String url = Uri.https(BASE_URL, POINT_API + endpoint, {"sym": "$currency", "lmt": "$limit"}).toString();
     var response = await http.get(url);
     var responseJson = decodeJsonUtf8(response);
 
-    BitkubOpenOrderDao openOrder = BitkubOpenOrderDao.fromJson(orderType, responseJson);
+    BitkubMarketOpenOrderDao openOrder = BitkubMarketOpenOrderDao.fromJson(orderType, responseJson);
 
     if (printJson) {
       print(url);
@@ -158,15 +170,15 @@ class BitkubExchangeService {
 
   /// This is a [public] api.
   /// Get all open buy orders.
-  Future<BitkubOpenOrderAllDao> fetchOpenOrderAll({String symbol = "THB_BTC", int limit = 100, bool printJson = false}) async {
+  Future<BitkubMarketOpenOrderAllDao> fetchOpenOrderAll({String currency = "THB_BTC", int limit = 100, bool printJson = false}) async {
     assert(limit != null && limit > 0, "Please provide limit of data.");
-    assert(symbol != null && symbol.isNotEmpty, "Please provide pair symbol of data.");
+    assert(currency != null && currency.isNotEmpty, "Please provide pair symbol of data.");
 
-    String url = Uri.https(BASE_URL, POINT_API + END_POINT_OPEN_ORDER_ALL, {"sym": "$symbol", "lmt": "$limit"}).toString();
+    String url = Uri.https(BASE_URL, POINT_API + END_POINT_OPEN_ORDER_ALL, {"sym": "$currency", "lmt": "$limit"}).toString();
     var response = await http.get(url);
     var responseJson = decodeJsonUtf8(response);
 
-    BitkubOpenOrderAllDao openOrder = BitkubOpenOrderAllDao.fromJson(responseJson);
+    BitkubMarketOpenOrderAllDao openOrder = BitkubMarketOpenOrderAllDao.fromJson(responseJson);
 
     if (printJson) {
       print(url);
@@ -198,5 +210,144 @@ class BitkubExchangeService {
     }
 
     return balance;
+  }
+
+  /// This is a [private] api.
+  /// List all open orders of the given symbol.
+  /// Example parameter : currency = "THB_ETH"
+  Future<BitkubUserOpenOrderDao> fetchOpenOrders({@required String currency, bool printJson = false}) async {
+    String url = Uri.https(BASE_URL, POINT_API + END_POINT_OPEN_ORDER).toString();
+
+    Map payload = {"sym": currency};
+    payload = BitkubAuthUtils.generateSignatureAndIncludeToPayload(apiKeyGeneral, payload);
+    String jsonPayload = jsonEncode(payload);
+
+    print(jsonPayload);
+
+    var response = await http.post(url, headers: BitkubAuthUtils.createHeader(apiKeyGeneral), body: jsonPayload);
+    var responseJson = decodeJsonUtf8(response);
+
+    BitkubUserOpenOrderDao orders = BitkubUserOpenOrderDao.fromJson(responseJson);
+
+    if (printJson) {
+      print(url);
+      printPrettyJson(orders.toJson());
+    }
+
+    return orders;
+  }
+
+  /// This is a [private] api.
+  /// List all orders that have already matched.
+  /// Example parameter : currency = "THB_ETH"
+  Future<BitkubUserOrderHistoryDao> fetchOrderHistory({@required String currency, int page = 1, int limit = 100, bool printJson = false}) async {
+    String url = Uri.https(BASE_URL, POINT_API + END_POINT_ORDER_HISTORY).toString();
+
+    Map payload = {"sym": currency, "p": page, "limit": limit};
+    payload = BitkubAuthUtils.generateSignatureAndIncludeToPayload(apiKeyGeneral, payload);
+    String jsonPayload = jsonEncode(payload);
+
+    print(jsonPayload);
+
+    var response = await http.post(url, headers: BitkubAuthUtils.createHeader(apiKeyGeneral), body: jsonPayload);
+    var responseJson = decodeJsonUtf8(response);
+    print(responseJson);
+    BitkubUserOrderHistoryDao history = BitkubUserOrderHistoryDao.fromJson(responseJson);
+
+    if (printJson) {
+      print(url);
+      printPrettyJson(history.toJson());
+    }
+
+    return history;
+  }
+
+  /// This is a [private] api.
+  /// List all orders that have already matched.
+//  Future<BitkubOrderInformationDao> fetchOrderInformation({@required String currency, @required int orderId, BitkubOpenOrderSide side = BitkubOpenOrderSide.BUY, bool printJson = false}) async {
+//    String url = Uri.https(BASE_URL, POINT_API + END_POINT_ORDER_INFORMATION).toString();
+//
+//    Map payload = {"sym": currency, "id": "$orderId", "sd":  fromBitkubOpenOrderSideToString(side).toLowerCase()};
+//
+//    payload = BitkubAuthUtils.generateSignatureAndIncludeToPayload(apiKeyGeneral, payload);
+//    String jsonPayload = jsonEncode(payload);
+//
+//    print(url);
+//    print(jsonPayload);
+//
+//    var response = await http.post(url, headers: BitkubAuthUtils.createHeader(apiKeyGeneral), body: jsonPayload);
+//    var responseJson = decodeJsonUtf8(response);
+//
+//    print(responseJson);
+//    BitkubOrderInformationDao history = BitkubOrderInformationDao.fromJson(responseJson);
+//
+//    if (printJson) {
+//      print(url);
+//      printPrettyJson(history.toJson());
+//    }
+//
+//    return history;
+//  }
+
+  /// This is a [private] api.
+  /// Create a buy/sell order.
+  Future<BitkubCreateOrderResultDao> createOrder({@required String currency, @required double amount, @required double rate, @required BitkubOpenOrderSide side, bool printJson = false}) async {
+    String endpoint = "";
+    if (side == BitkubOpenOrderSide.BUY) {
+      endpoint = END_POINT_CREATE_BUY_ORDER;
+    } else {
+      endpoint = END_POINT_CREATE_SELL_ORDER;
+    }
+
+    String url = Uri.https(BASE_URL, POINT_API + endpoint).toString();
+
+    Map payload = {"sym": currency, "amt": "$amount", "rat": "$rate", "typ": "limit"};
+
+    payload = BitkubAuthUtils.generateSignatureAndIncludeToPayload(apiKeyCreateOrder, payload);
+    String jsonPayload = jsonEncode(payload);
+
+    print(url);
+    print(jsonPayload);
+
+    var response = await http.post(url, headers: BitkubAuthUtils.createHeader(apiKeyCreateOrder), body: jsonPayload);
+    var responseJson = decodeJsonUtf8(response);
+
+    print(responseJson);
+    BitkubCreateOrderResultDao result = BitkubCreateOrderResultDao.fromJson(responseJson);
+
+    if (printJson) {
+      print(url);
+      printPrettyJson(result.toJson());
+    }
+
+    return result;
+  }
+
+  /// This is a [private] api.
+  /// Cancel order.
+  Future<BitkubCancelOrderResultDao> cancelOrder({@required String currency, @required int orderId, @required BitkubOpenOrderSide side, bool printJson = false}) async {
+
+    String url = Uri.https(BASE_URL, POINT_API + END_POINT_CANCEL_ORDER).toString();
+
+    Map payload = {"sym": currency, "id": "$orderId", "sd": "${fromBitkubOpenOrderSideToString(side)}"};
+
+    payload = BitkubAuthUtils.generateSignatureAndIncludeToPayload(apiKeyCancelOrder, payload);
+    String jsonPayload = jsonEncode(payload);
+
+    print(url);
+    print(jsonPayload);
+
+    var response = await http.post(url, headers: BitkubAuthUtils.createHeader(apiKeyCancelOrder), body: jsonPayload);
+    var responseJson = decodeJsonUtf8(response);
+
+    print(responseJson);
+    BitkubCancelOrderResultDao result = BitkubCancelOrderResultDao.fromJson(responseJson);
+
+    if (printJson) {
+      print(url);
+      printPrettyJson(result.toJson());
+    }
+
+    return result;
   }
 }

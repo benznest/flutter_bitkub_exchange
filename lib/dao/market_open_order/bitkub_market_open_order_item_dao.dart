@@ -1,4 +1,3 @@
-import 'package:flutter_bitkub_exchange/bitkub_trade_type.dart';
 
 class BitkubOpenOrderItemDao {
   int timestamp;

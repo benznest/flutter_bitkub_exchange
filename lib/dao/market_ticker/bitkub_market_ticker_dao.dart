@@ -8,7 +8,7 @@ class BitkubMarketTickerDao {
 
   factory BitkubMarketTickerDao.fromJson(Map<String, dynamic> json) {
     List<BitkubPairCurrencyDataDao> list = List();
-    for (String pairName in BitkubCurrencyManager.PAIR_CURRENCY_AVAILABLE) {
+    for (String pairName in BitkubCurrency.PAIR_CURRENCY_AVAILABLE) {
       if(json[pairName] != null) {
         list.add(BitkubPairCurrencyDataDao.fromJson(pairName, json[pairName]));
       }

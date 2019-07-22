@@ -1,24 +1,21 @@
-import 'dart:convert';
 
-import 'package:flutter_bitkub_exchange/bitkub_open_order_type.dart';
-import 'package:flutter_bitkub_exchange/dao/open_order/bitkub_open_order_item_dao.dart';
-import 'package:flutter_bitkub_exchange/dao/recent_trades/bitkub_recent_trade_item_dao.dart';
+import 'package:flutter_bitkub_exchange/dao/market_open_order/bitkub_market_open_order_item_dao.dart';
 
-class BitkubOpenOrderAllDao {
+class BitkubMarketOpenOrderAllDao {
   int errorCode;
   List<BitkubOpenOrderItemDao> bids;
   List<BitkubOpenOrderItemDao> asks;
   List<String> errorMessage;
 
-  BitkubOpenOrderAllDao({this.errorCode, this.bids, this.asks, this.errorMessage});
+  BitkubMarketOpenOrderAllDao({this.errorCode, this.bids, this.asks, this.errorMessage});
 
   bool isError() {
     return errorCode != 0;
   }
 
-  factory BitkubOpenOrderAllDao.fromJson( Map<String, dynamic> json) {
+  factory BitkubMarketOpenOrderAllDao.fromJson( Map<String, dynamic> json) {
     if (json["error"] == 0) {
-      return BitkubOpenOrderAllDao(
+      return BitkubMarketOpenOrderAllDao(
         errorCode: json["error"],
         errorMessage: List(),
         bids: List.of(json["result"]["bids"]).map((json) => BitkubOpenOrderItemDao.fromJson(json)).toList(),
@@ -33,7 +30,7 @@ class BitkubOpenOrderAllDao {
       } else {
         listError.add("There are no symbol trade.");
       }
-      return BitkubOpenOrderAllDao( errorCode: json["error"], errorMessage: listError, bids: List(), asks: List());
+      return BitkubMarketOpenOrderAllDao( errorCode: json["error"], errorMessage: listError, bids: List(), asks: List());
     }
   }
 
