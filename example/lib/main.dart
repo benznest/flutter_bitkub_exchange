@@ -14,35 +14,41 @@ Future main() async {
 // var recent = await bk.fetchRecentTrades(currency: "THB_BTC", limit: 100);
 //  await bk.fetchRecentTrades(currency: "xx", limit: 10, printJson: true); // Error case
 
-  var openOrder = await bk.fetchMarketOpenOrders(orderType: BitkubOpenOrderType.BIDS, currency: "THB_BTC", limit: 10, printJson: true);
-  if (openOrder.isError()) {
-    // openOrder.errorMessage
-  } else {
-    for (var order in openOrder.orders) {
-      // order.orderId;
-      // order.amount;
-      // order.rate;
-      // order.volume;
-      // order.timestam;
-    }
-  }
+//  var openOrder = await bk.fetchMarketOpenOrders(orderType: BitkubOpenOrderType.BIDS, currency: "THB_BTC", limit: 10, printJson: true);
+
 
 //  await bk.fetchOpenOrder(currency: "xx", limit: 10, printJson: true); // Error case
 //  await bk.fetchOpenOrder(orderType: BitkubOpenOrderType.ASKS, currency: "THB_BTC", limit: 10, printJson: true);
-
-  var market = await bk.fetchMarketOpenOrdersAll(currency: "THB_BTC", limit: 10);
-  if (market.isError()) {
-    // openOrder.errorMessage
-  } else {
-    // market.bids;
-    // market.asks;
-  }
+//  var market = await bk.fetchMarketOpenOrdersAll(currency: "THB_BTC", limit: 10);
 
 //  await bk.fetchOpenOrderAll(currency: "ZZ", limit: 10, printJson: true);// Error case
 
-//  await bk.fetchWalletBalance(printJson: true);
-//  await bk.fetchOpenOrders(currency: "THB_ETH", printJson: true);
-//  await bk.fetchOrderHistory(currency: "THB_ETH",printJson: true);
+//  var data = await bk.fetchWalletBalance(printJson: true);
+
+
+
+ var openOrder =  await bk.fetchUserOpenOrders(currency: "THB_ETH", printJson: true);
+
+
+  var data = await bk.fetchUserOrderHistory(currency: "THB_ETH",printJson: true);
+  if(data.isError()){
+    // data.errorMessage;
+  }else{
+    for(var tx in data.history){
+      // tx.txnId;
+      // tx.orderId;
+      // tx.side;
+      // tx.rate;
+      // tx.amount;
+      // tx.fee;
+      // tx.credit;
+      // tx.takenByMe;
+      // row.balance;
+    }
+  }
+
+
+
 //  await bk.createOrder(currency: "THB_ETH",side: BitkubOpenOrderSide.BUY,amount: 30,rate: 100,printJson: true);
 
 //  await bk.cancelOrder(currency: "THB_ETH",side: BitkubOpenOrderSide.BUY,orderId: 3132207,printJson: true);

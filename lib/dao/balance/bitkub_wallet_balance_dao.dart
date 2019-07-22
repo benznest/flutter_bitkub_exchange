@@ -6,11 +6,11 @@ import 'package:flutter_bitkub_exchange/dao/balance/bitkub_currency_balance_deta
 class BitkubWalletBalanceDao {
   int error;
   String errorMessage;
-  List<BitkubCurrencyBalanceDao> wallet;
+  List<BitkubCurrencyBalanceDao> wallets;
 
   isError() => error != 0;
 
-  BitkubWalletBalanceDao({this.error, this.errorMessage, this.wallet});
+  BitkubWalletBalanceDao({this.error, this.errorMessage, this.wallets});
 
   factory BitkubWalletBalanceDao.fromJson(Map<String, dynamic> json) {
     List<BitkubCurrencyBalanceDao> listCurrencyBalance = List();
@@ -30,11 +30,11 @@ class BitkubWalletBalanceDao {
     return BitkubWalletBalanceDao(
       error: json["error"],
       errorMessage: BitkubErrorManager.getErrorMessage(json["error"]),
-      wallet: listCurrencyBalance,
+      wallets: listCurrencyBalance,
     );
   }
 
   Map<String, dynamic> toJson() {
-    return {"error": this.error, "errorMessage": this.errorMessage, "wallet": wallet.map((item) => item.toJson()).toList()};
+    return {"error": this.error, "errorMessage": this.errorMessage, "wallet": wallets.map((item) => item.toJson()).toList()};
   }
 }
